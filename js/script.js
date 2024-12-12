@@ -4,6 +4,11 @@ const nameList = document.getElementById("name-list");
 const pickBtn = document.getElementById("pick-btn");
 const result = document.getElementById("result");
 const statList = document.getElementById("statList");
+const versionEl = document.getElementById("version");
+const resetBtn = document.getElementById("resetBtn");
+
+const version = "v0.1.1";
+versionEl.innerText = version;
 
 let names = JSON.parse(localStorage.getItem("names")) || [];
 
@@ -87,6 +92,10 @@ function pickRandomName() {
   result.style.animation = "fade-in 1s ease-out";
 }
 
+function reset() {
+  localStorage.clear();
+}
+
 // Event Listeners
 
 addBtn.addEventListener("click", addName);
@@ -105,6 +114,8 @@ pickBtn.addEventListener("click", () => {
   pickRandomName();
   renderStats();
 });
+
+resetBtn.addEventListener("click", reset);
 
 renderStats();
 renderList();
