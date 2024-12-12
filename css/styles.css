@@ -28,6 +28,7 @@ main {
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+  position: relative;
 }
 
 h1 {
@@ -79,6 +80,35 @@ button:hover {
 
 .hidden {
   display: none;
+}
+
+#statsContainer {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 300px;
+  background-color: var(--white);
+  padding: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#statList {
+  list-style: none;
+}
+
+#statList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#statList li span {
+  color: var(--accent-blue);
+  font-weight: bold;
 }
 
 @keyframes fade-in {

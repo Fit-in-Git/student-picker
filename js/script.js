@@ -3,6 +3,7 @@ const addBtn = document.getElementById("add-btn");
 const nameList = document.getElementById("name-list");
 const pickBtn = document.getElementById("pick-btn");
 const result = document.getElementById("result");
+const statList = document.getElementById("statList");
 
 let names = JSON.parse(localStorage.getItem("names")) || [];
 
@@ -18,6 +19,20 @@ function addName() {
     nameInput.value = "";
     renderList();
   }
+}
+
+function renderStats() {
+  statList.innerHTML = "";
+
+  names.map((nameObj) => {
+    const li = document.createElement("li");
+    const statHtml = `
+    <span>${nameObj.name}:</span> ${nameObj.timesPicked}
+    `;
+
+    li.innerHTML = statHtml;
+    statList.append(li);
+  });
 }
 
 function renderList() {
@@ -60,13 +75,13 @@ function pickRandomName() {
   const randomIndex = Math.floor(Math.random() * includedNames.length);
   const pickedName = includedNames[randomIndex].name;
   const originalIndex = names.findIndex(
-    (nameObj) => nameObj.name === pickedName.name
+    (nameObj) => nameObj.name === pickedName
   );
-  if (originalIndex !== -1) {
-    names[originalIndex].timesPicked++;
-  }
-  saveToLocalStorage();
 
+  names[originalIndex].timesPicked++;
+
+  saveToLocalStorage();
+  console.log(names);
   result.textContent = pickedName;
   result.classList.remove("hidden");
   result.style.animation = "fade-in 1s ease-out";
@@ -86,6 +101,10 @@ nameList.addEventListener("click", (e) => {
     removeName(e.target.dataset.index);
 });
 
-pickBtn.addEventListener("click", pickRandomName);
+pickBtn.addEventListener("click", () => {
+  pickRandomName();
+  renderStats();
+});
 
+renderStats();
 renderList();
