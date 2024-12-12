@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
+
+  /* colors: */
+  --main-bg-color: rgba(247, 159, 31, 1);
+  --main-accent-color: rgba(0, 148, 50, 1);
+  --accent-blue: rgba(27, 20, 100, 1);
+  --black: #101010;
+  --white: #f6f6f6;
+}
+
+body {
+  background-color: var(--main-bg-color);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+}
+
+.container {
+  background-color: var(--white);
+  padding: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.add-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#name-input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  flex: 1;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: var(--main-accent-color);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+  color: var(--white);
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--accent-blue);
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
